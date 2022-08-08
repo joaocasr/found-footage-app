@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">foundfootage</string>
+
+
+    <string-array name="categories">
+        <item>Movie Title</item>
+        <item>Actor Name</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

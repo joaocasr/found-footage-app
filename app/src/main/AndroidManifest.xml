@@ -12,19 +12,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foundfootage">
         <activity
-            android:name=".ReleaseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".SplashScreen"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DetailedActivity"></activity>
-
+        <activity
+            android:name=".Watchlist"
+            android:exported="false" />
+        <activity
+            android:name=".Likes"
+            android:exported="false" />
+        <activity
+            android:name=".ReleaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".DetailedActivity" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1810794261274785~8904806970"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

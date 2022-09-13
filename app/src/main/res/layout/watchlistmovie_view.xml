@@ -15,7 +15,6 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/imageView_poster"
-            android:src="@drawable/poster1"
             android:scaleType="fitXY"
             android:layout_width="match_parent"
             android:layout_height="180dp"/>

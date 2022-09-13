@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/anton</item>
+        <item>@font/baloo</item>
+        <item>@font/bangers</item>
         <item>@font/barriecito</item>
+        <item>@font/bevan</item>
+        <item>@font/modern_antiqua</item>
+        <item>@font/patua_one</item>
         <item>@font/trocchi</item>
     </array>
 </resources>

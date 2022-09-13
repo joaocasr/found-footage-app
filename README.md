@@ -6,5 +6,25 @@ FFC is a database app of information related to found footage movies. Here you'l
   1. Go to **Play Store**.
   2. Search for **Found Footage Creep**.
   3. Find the app and click **Install**.
+  
+> ## Home
 
-<img src = "screenshots/ffsc1.jpg" width=250>  <img src = "screenshots/watchlist.jpg" width=250>  <img src = "screenshots/home.jpg" width=250>  <img src = "screenshots/filter.jpg" width=250>  <img src = "screenshots/ff4.jpg" width=250>  <img src = "screenshots/ffsc3.jpg" width=250> <img src = "screenshots/ffsc5.jpg" width=250>  <img src = "screenshots/likes.jpg" width=250>
+<img src = "screenshots/home.jpg" width=250>
+
+> ## Watchlist
+
+<img src = "screenshots/watchlist.jpg" width=250>
+
+> ## Likes
+
+<img src = "screenshots/likes.jpg" width=250>
+
+> ## Releases
+
+<img src = "screenshots/ff4.jpg" width=250>
+
+> ## Search
+
+<img src = "screenshots/filter.jpg" width=250> 
+
+<img src = "screenshots/ffsc1.jpg" width=250> <img src = "screenshots/ffsc3.jpg" width=250> <img src = "screenshots/ffsc5.jpg" width=250> 

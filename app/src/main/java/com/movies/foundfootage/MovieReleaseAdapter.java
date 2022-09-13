@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.movies.foundfootage.Models.Movie;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,9 @@ public class MovieReleaseAdapter extends RecyclerView.Adapter<MovieReleaseAdapte
         holder.titulo.setText(title);
         holder.status.setText(m.getRelease());
         holder.plotrelease.setText(m.getPlot());
-        holder.poster.setImageResource(m.getPoster_path());
+        Picasso.get().load(m.getPoster_path()).placeholder(R.drawable.default_poster).into(holder.
+                poster);
+
 
     }
 

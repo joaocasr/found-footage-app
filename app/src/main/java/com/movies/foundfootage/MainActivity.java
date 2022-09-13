@@ -3,12 +3,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.movies.foundfootage.Interface.DatabaseHelper;
 import com.movies.foundfootage.Models.Movie;
+//import com.movies.foundfootage.Interface.DatabaseHelper;
 import com.movies.foundfootage.Interface.RecyclerViewInterface;
 
 import java.io.BufferedReader;
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     private Spinner spinner;
     private EditText editText;
     private BottomNavigationView bottomNavigationView;
+    private ImageView close;
 
     ArrayList<String> arrayList;
     ArrayList<String> watchlistMovies;
@@ -56,10 +61,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         setContentView(R.layout.activity_main);
 
         this.buildMovies();
+        //if(movieList.size()!=0) Toast.makeText(this,"size: "+movieList.size(),Toast.LENGTH_LONG).show();
         movieSearchAdapter[0] = new MovieSearchAdapter(movieList,this);
 
         editText = (EditText) findViewById(R.id.search_view);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        close = findViewById(R.id.closeimage);
+        close.setVisibility(View.GONE);
 
         recyclerView = findViewById(R.id.recycler_view1);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -76,6 +84,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,R.layout.selected_item,opcoes);
         arrayAdapter.setDropDownViewResource(R.layout.dropdown_item);
         spinner.setAdapter(arrayAdapter);
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editText.getText().clear();
+            }
+        });
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -105,15 +120,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         });
 
         db = new DatabaseHelper(MainActivity.this);
-        //SQLiteDatabase sqLiteDatabase = db.getWritableDatabase();
-        //db.onUpgrade(sqLiteDatabase,5,6);
         //db.deleteAll();
         arrayList = db.getFavs();
         watchlistMovies = db.getToWatch();
         this.likedMovies = new ArrayList<>(arrayList);
         this.toWatchMovies = new ArrayList<>(watchlistMovies);
-        //db.addMovie(R.drawable.poster1//);
-        //movieSearchAdapter = new MovieSearchAdapter(this,db.getAllMovies());
 
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -142,11 +153,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                close.setVisibility(View.GONE);
                 return;
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                close.setVisibility(View.VISIBLE);
                 return;
 
             }
@@ -170,7 +183,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     private void filter(String s){
         filteredList.clear();
         for (Movie m : movieList){
-            if(m.getTitle().toLowerCase().contains(s.toLowerCase())){
+            if(m.getTitle().toLowerCase().contains(s.toLowerCase()) || m.getDirectors().toLowerCase().contains(s.toLowerCase())){
                 filteredList.add(m);
             }
         }
@@ -180,25 +193,25 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
 
     public void buildMovies(){
-            int l=1;
-            StringBuilder sb = new StringBuilder();
-            InputStream inputStream = getResources().openRawResource(R.raw.moviedb);
+        int l=1;
+        StringBuilder sb = new StringBuilder();
+        InputStream inputStream = getResources().openRawResource(R.raw.moviedb);
 
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
-                String line = null;
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
+            String line = null;
                 while((line = br.readLine()) != null) {
                     String[] parte = line.split(";");
-                    String mDrawableName = sb.append("poster").append(l).toString();
-                    int imageID = getResources().getIdentifier(mDrawableName , "drawable", getPackageName());
-                    movieList.add(new Movie(l,parte[0],imageID,parte[1],parte[2],parte[3],Double.parseDouble(parte[4]),parte[5],Double.parseDouble(parte[6]),parte[7],parte[8]));
+                    movieList.add(new Movie(l,parte[0],parte[3],parte[1],parte[2],parte[4],Double.parseDouble(parte[5]),parte[6],Double.parseDouble(parte[7]),parte[8],parte[9]));
                     // read next line
                     sb = new StringBuilder();
                     l++;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            } catch (NumberFormatException n){
+            Log.d("error","linha"+l);
         }
+    }
 
 
     @Override

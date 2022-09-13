@@ -27,4 +27,6 @@ FFC is a database app of information related to found footage movies. Here you'l
 
 <img src = "screenshots/filter.jpg" width=250> 
 
+> ## Screensplash & Movies Details
+
 <img src = "screenshots/ffsc1.jpg" width=250> <img src = "screenshots/ffsc3.jpg" width=250> <img src = "screenshots/ffsc5.jpg" width=250> 

@@ -1,16 +1,18 @@
 package com.movies.foundfootage.Models;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class Movie implements Comparable<Movie> {
+public class Movie implements Comparable<Movie>, Serializable {
 
      int id;
      String title;
-     int poster_path;
+     String poster_path;
      String release;
      String genres;
      String plot;
      double rate;
+     String metascore;
      double time;
      String actors;
      String directors;
@@ -30,7 +32,7 @@ public class Movie implements Comparable<Movie> {
         this.directors = directors;
     }
 
-    public Movie(int id, String title, int poster_path, String release, String genres, String plot, double rate, double time, String actors, String directors) {
+    public Movie(int id, String title, String poster_path, String release, String genres, String plot, double rate,String metascore, double time, String actors, String directors) {
         this.id = id;
         this.title = title;
         this.poster_path = poster_path;
@@ -38,6 +40,7 @@ public class Movie implements Comparable<Movie> {
         this.genres = genres;
         this.plot = plot;
         this.rate = rate;
+        this.metascore = metascore;
         this.time = time;
         this.actors = actors;
         this.directors = directors;
@@ -51,6 +54,7 @@ public class Movie implements Comparable<Movie> {
         this.genres = m.getGenres();
         this.plot = m.getPlot();
         this.rate = m.getRate();
+        this.metascore = m.getMetascore();
         this.time = m.getTime();
         this.actors = m.getActors();
         this.directors = m.getDirectors();
@@ -72,11 +76,11 @@ public class Movie implements Comparable<Movie> {
         this.title = title;
     }
 
-    public int getPoster_path() {
+    public String getPoster_path() {
         return poster_path;
     }
 
-    public void setPoster_path(int poster_path) {
+    public void setPoster_path(String poster_path) {
         this.poster_path = poster_path;
     }
 
@@ -110,6 +114,14 @@ public class Movie implements Comparable<Movie> {
 
     public void setRate(double rate) {
         this.rate = rate;
+    }
+
+    public String getMetascore() {
+        return metascore;
+    }
+
+    public void setMetascore(String metascore) {
+        this.metascore = metascore;
     }
 
     public double getTime() {

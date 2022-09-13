@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.movies.foundfootage.Models.Movie;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,8 @@ public class LikeMoviesAdapter extends RecyclerView.Adapter<LikeMoviesAdapter.Li
         String title = m.getTitle();
         holder.titulo.setText(title);
         holder.data.setText(m.getRelease());
-        holder.poster.setImageResource(m.getPoster_path());
+        Picasso.get().load(m.getPoster_path()).placeholder(R.drawable.default_poster).into(holder.
+                poster);
 
     }
 

@@ -42,8 +42,8 @@
 
     <ToggleButton
         android:id="@+id/favourite_button"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:textOn=" "
         android:textOff=" "
         android:background="@drawable/favourite_shadow_icon"
@@ -74,6 +74,7 @@
         android:text="TextView"
         android:textColor="@color/white"
         android:textSize="11dp"
+        tools:ignore="TextSizeCheck"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.807"
@@ -94,68 +95,3 @@
         app:srcCompat="@drawable/ic_baseline_star_rate_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-<!--<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp"
-    app:cardCornerRadius="30dp"
-    android:id="@+id/movies_container"
-    app:cardBackgroundColor="@color/purplea2"
-    android:layout_margin="20dp"
-    >
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/movietitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="Movie Title"
-            android:fontFamily="Arial"
-            android:textSize="20sp"
-            android:padding="6dp"
-            />
-        <ImageView
-            android:id="@+id/poster"
-            android:layout_width="200dp"
-            android:scaleType="centerCrop"
-            android:layout_gravity="center"
-            android:layout_height="200dp"/>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            >
-            <TextView
-                android:id="@+id/rate"
-                android:textColor="@color/white"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Rate"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:scrollHorizontally="true"
-                android:layout_marginStart="30dp"
-                android:textSize="15sp"
-                />
-            <TextView
-                android:id="@+id/duration"
-                android:textColor="@color/white"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Duration"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:scrollHorizontally="true"
-                android:layout_marginStart="30dp"
-                android:textSize="15sp"
-                />
-        </LinearLayout>
-    </LinearLayout>
-
-</androidx.cardview.widget.CardView>
--->
